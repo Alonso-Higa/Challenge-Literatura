@@ -11,10 +11,10 @@ esto lo almacena en una base de datos PostreSQL, que más adelante sirve para po
 <h2>💥Requisitos previos💥</h2>
 
 >[!WARNING]
-> Debes tener PostgreSQL instalado
+> **Debes tener PostgreSQL instalado**
 
 >[!WARNING]
-> Configura tus credenciales de PostgreSQL en el archivo 'application.properties'
+> **Configura tus credenciales de PostgreSQL en el archivo 'application.properties'**
 
 <h2>Tecnologías Utilizadas💻</h2>
 
