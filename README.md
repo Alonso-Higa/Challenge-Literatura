@@ -11,6 +11,7 @@ esto lo almacena en una base de datos PostreSQL, que más adelante sirve para po
 <h2>💥Requisitos previos💥</h2>
 >[!WARNING]
 > Debes tener PostgreSQL instalado
+
 >[!WARNING]
 > Configura tus credenciales de PostgreSQL en el archivo 'application.properties'
 
