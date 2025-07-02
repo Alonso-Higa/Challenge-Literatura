@@ -8,6 +8,9 @@
 Este es un proyecto desarrollado con Spring Boot utilizando el generador de proyectos Spring Initializr. La aplicación permite realizar la búsqueda de libros dando un request a la API pública de Gutendex y 
 esto lo almacena en una base de datos PostreSQL, que más adelante sirve para poder realizar búsquedas por idioma, año o autores, de lo que se haya buscado anteriormente. 
 
+>[!WARNING]
+> Tienes que tener PostgreSQL
+
 <h2>Tecnologías Utilizadas💻</h2>
 
   - **API de busuqeda de libros**: Gutendex API
