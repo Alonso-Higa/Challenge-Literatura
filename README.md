@@ -9,6 +9,7 @@ Este es un proyecto desarrollado con Spring Boot utilizando el generador de proy
 esto lo almacena en una base de datos PostreSQL, que más adelante sirve para poder realizar búsquedas por idioma, año o autores, de lo que se haya buscado anteriormente. 
 
 <h2>💥Requisitos previos💥</h2>
+
 >[!WARNING]
 > Debes tener PostgreSQL instalado
 
