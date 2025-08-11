@@ -1,4 +1,3 @@
-<h1>Challenge 2 Conversor de literatura📚</h1>
 <h1>Challenge 2 de literatura📚</h1>
 <h2>🔨Desarrollado por</h2>
 
