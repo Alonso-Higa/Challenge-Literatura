@@ -1,42 +1,100 @@
+<h1>📚 Challenge API - Sistema de Gestión de Tópicos</h1>
 
-<h1>Challenge 2 de literatura📚</h1>
-<h2>🔨Desarrollado por</h2>
+<h2>🔨 Desarrollado por</h2>
 
-  -  Alonso Higa Kohatsu
+- [Alonso Higa]
 
-<h2>Descripcion del proyecto📄</h2>
-Este es un proyecto desarrollado con Spring Boot utilizando el generador de proyectos Spring Initializr. La aplicación permite realizar la búsqueda de libros dando un request a la API pública de Gutendex y 
-esto lo almacena en una base de datos PostreSQL, que más adelante sirve para poder realizar búsquedas por idioma, año o autores, de lo que se haya buscado anteriormente. 
+<h2>📄 Descripción del Proyecto</h2>
 
-<h2>💥Requisitos previos💥</h2>
+API REST construida con <strong>Spring Boot</strong> para la gestión de usuarios y tópicos de discusión.  
+Incluye autenticación <strong>JWT</strong>, validación de datos y manejo global de errores.
 
->[!WARNING]
-> **Debes tener PostgreSQL instalado**
+<h2> Requisitos Previos</h2>
 
->[!WARNING]
-> **Configura tus credenciales de PostgreSQL en el archivo 'application.properties'**
+>[!WARNING]  
+> 💾 Debes tener <strong>MySQL</strong> instalado y ejecutándose
 
-<h2>Tecnologías Utilizadas💻</h2>
+>[!WARNING]  
+> ⚙️ Configura tus credenciales en el archivo <code>application.properties</code>
 
-  - **API de busuqeda de libros**: Gutendex API
-  
-  - **Base de datos**: PostgreSQL
-    
-  - **Spring Data JPA**: Acceso a datos relacional
+<h2>💻 Tecnologías Utilizadas</h2>
 
-  - **JSON + GSON / Jackson**: Se realizó una conversión de datos desde la API
+- <strong>Lenguaje:</strong> Java 17  
+- <strong>Framework:</strong> Spring Boot 3.5.x  
+- Spring Security  
+- Spring Data JPA  
+- MySQL  
+- Flyway (migraciones)  
+- JWT (Auth0)  
+- Lombok
 
+<h2>⚙️ Configuración del Proyecto</h2>
 
-<h2>Funcionalidades⚙️</h2>
+<h3>1. Base de Datos (MySQL)</h3>
 
-  📚 Se puede realizar una búsqueda de libros por el título a través de la API de Gutendex
+Configura tu archivo <code>application.properties</code>:
 
-  📖 Listado de libros buscados anteriormente
-  
-  ✅ Verifica automáticamente si el libro ya esta registrado
+<pre><code>
+spring.datasource.url=jdbc:mysql://localhost:3306/challenge
+spring.datasource.username=tu_usuario
+spring.datasource.password=tu_password
 
-  👨‍💼 Listado de autores registrados en los libros guardados, incluyendo los títulos asociados a cada uno
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=true
 
-  📆 Filtra autores por año: muestra autores que estaban vivos durante un año ingresado por el usuario (según su año de nacimiento o fallecimiento).
+spring.flyway.enabled=true
+spring.flyway.locations=classpath:db/migration
+</code></pre>
 
-  🌍 Búsqueda de libros por idioma
+<h3>2. Ejecución del Proyecto</h3>
+
+Usa el siguiente comando para iniciar la aplicación:
+
+<pre><code>./mvnw spring-boot:run</code></pre>
+
+<h2>🔐 Autenticación</h2>
+
+<h3>Endpoint de Login</h3>
+
+<code>POST /login</code>  
+Requiere credenciales válidas de usuario y devuelve un token JWT.
+
+<h4>📥 Ejemplo de Request:</h4>
+
+<pre><code>{
+  "login": "usuario123",
+  "contrasenha": "secreta"
+}
+</code></pre>
+
+> Todos los endpoints protegidos requieren un JWT válido en el header:
+> <code>Authorization: Bearer &lt;token&gt;</code>
+
+<h2>📌 Endpoints Principales</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Método</th>
+      <th>Ruta</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>POST</td><td>/topicos</td><td>Registrar un tópico</td></tr>
+    <tr><td>GET</td><td>/topicos</td><td>Listar todos los tópicos</td></tr>
+    <tr><td>GET</td><td>/topicos/{id}</td><td>Obtener detalle de un tópico</td></tr>
+    <tr><td>PUT</td><td>/topicos</td><td>Actualizar un tópico</td></tr>
+    <tr><td>DELETE</td><td>/topicos/{id}</td><td>Desactivar un tópico</td></tr>
+  </tbody>
+</table>
+
+<h2>❗ Manejo de Errores</h2>
+
+Los errores de validación y recursos no encontrados son manejados por <code>GestorDeErrores.java</code>, devolviendo respuestas claras y estructuradas al cliente.
+
+<h2>📝 Notas Finales</h2>
+
+- Asegúrate de que las migraciones Flyway se ejecuten correctamente al iniciar la aplicación.
+- Todos los endpoints protegidos requieren un JWT válido.
+- La lógica de usuarios y tópicos es fácilmente extensible para futuras funcionalidades.
