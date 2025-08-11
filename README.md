@@ -1,4 +1,4 @@
-<h1>📚 Challenge API - Sistema de Gestión de Tópicos</h1>
+<h1>📚 Challenge API - Foro Hub</h1>
 
 <h2>🔨 Desarrollado por</h2>
 
